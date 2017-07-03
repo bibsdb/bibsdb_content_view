@@ -131,17 +131,6 @@ function bibsdb_content_view_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Overskrift: Global: Tekstområde */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['label'] = 'Create event';
-  $handler->display->display_options['header']['area']['content'] = '<ul class="action-links">
-<li>
-<a href="/node/add/ding-event">Opret arrangement</a>
-</li>
-</ul>';
-  $handler->display->display_options['header']['area']['format'] = 'html';
   /* Forbindelse: Indhold: Forfatter */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
@@ -507,7 +496,13 @@ function bibsdb_content_view_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'admin/content/list';
+  $handler->display->display_options['path'] = 'admin/content';
+  $handler->display->display_options['menu']['title'] = 'Find indhold';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'management';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['weight'] = '0';
   $translatables['bibsdb_content_view'] = array(
     t('Master'),
     t('Indhold'),
@@ -524,12 +519,6 @@ function bibsdb_content_view_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('Create event'),
-    t('<ul class="action-links">
-<li>
-<a href="/node/add/ding-event">Opret arrangement</a>
-</li>
-</ul>'),
     t('forfatter'),
     t('Nid'),
     t('Opdatering'),
