@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * Code for the Bibsdb Content View feature.
+ */
+
+include_once 'bibsdb_content_view.features.inc';
+
+function bibsdb_content_view_preprocess_views_view(&$vars) {
+	$view = $vars['view'];
+	// Make sure it's the correct view
+	if($view->name == 'bibsdb_content_view') {
+		// add needed javascript
+		drupal_add_js(drupal_get_path('module', 'bibsdb_content_view') . '/js/bibsdb_content_view.js');
+		// add needed stylesheet
+		drupal_add_css(drupal_get_path('module', 'bibsdb_content_view') .'/css/bibsdb_content_view.css');
+	}
+}

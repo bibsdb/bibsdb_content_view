@@ -1,0 +1,11 @@
+/**
+ * Styles for the Bibsdb Content View
+ * 
+ *
+ * @author agms
+ */
+ 
+ 
+.bibsdb-node-usage .usage-details {
+    display:none;
+}
