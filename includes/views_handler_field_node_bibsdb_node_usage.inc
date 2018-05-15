@@ -71,21 +71,13 @@ class views_handler_field_node_bibsdb_node_usage extends views_handler_field_nod
         ),
       );
 
-    $content['usage-button'] = array(
-      '#type' => 'html_tag',
-      '#tag' => 'button',
-      '#value' => 0,
-      '#attributes' => array(
-        'class' => array('usage-button'),
-        'type' => array('button'),
-        ),
-      );
+
 
     if(!(empty($linknids))) {
       $content['link-nids'] = array(
         '#type' => 'html_tag',
         '#tag' => 'span',
-        '#value' => 'Link(s): ' . implode(" ", $linknids),
+        '#value' => 'Used in Search Context Link(s): ' . implode(" ", $linknids),
         '#attributes' => array(
           'class' => array('link-nids'),
           ),
@@ -188,7 +180,7 @@ class views_handler_field_node_bibsdb_node_usage extends views_handler_field_nod
       $exposure_markup = array(
         '#prefix' => '<div>',
         '#type' => 'markup',
-        '#markup' => 'Exposed on:' . $hosting_node->title . '(' . $hosting_node->nid . ')',
+        '#markup' => 'Exposed on: ' . $hosting_node->title . ' (node/' . $hosting_node->nid . ')',
         '#suffix' => '</div>',
         );
 
@@ -248,6 +240,10 @@ class views_handler_field_node_bibsdb_node_usage extends views_handler_field_nod
     if (isset($result['node'])) {
       $nids = array_keys($result['node']);
     } 
+
+    foreach ($nids as &$value) {
+      $value = 'node/' . $value;
+    }
 
     return $nids;
   }
