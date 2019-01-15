@@ -294,6 +294,7 @@ function bibsdb_content_view_views_default_views() {
   $handler->display->display_options['filters']['type_1']['table'] = 'node';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
   $handler->display->display_options['filters']['type_1']['value'] = array(
+    'ding_campaign' => 'ding_campaign',
     'ding_eresource' => 'ding_eresource',
     'ding_event' => 'ding_event',
     'ding_group' => 'ding_group',
